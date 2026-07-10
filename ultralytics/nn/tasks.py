@@ -72,6 +72,8 @@ from ultralytics.nn.modules import (
     YOLOESegment,
     YOLOESegment26,
     v10Detect,
+    C2f_DBN,
+    C3k2_DBN,
 )
 from ultralytics.utils import DEFAULT_CFG_DICT, LOGGER, YAML, colorstr, emojis
 from ultralytics.utils.checks import check_requirements, check_suffix, check_yaml
@@ -97,9 +99,6 @@ from ultralytics.utils.torch_utils import (
     smart_inference_mode,
     time_sync,
 )
-
-from ultralytics.change_model.DBN import C2f_DBN, C3k2_DBN
-
 
 class BaseModel(torch.nn.Module):
     """Base class for all YOLO models in the Ultralytics family.

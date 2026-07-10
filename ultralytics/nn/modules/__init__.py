@@ -59,6 +59,10 @@ from .block import (
     ResNetLayer,
     SCDown,
     TorchVision,
+    DiverseBlockNet,
+    Bottleneck_DBN,
+    C2f_DBN,
+    C3k2_DBN,
 )
 from .conv import (
     CBAM,
@@ -187,4 +191,8 @@ __all__ = (
     "YOLOESegment",
     "YOLOESegment26",
     "v10Detect",
+    "DiverseBlockNet",
+    "Bottleneck_DBN",
+    "C2f_DBN",
+    "C3k2_DBN",
 )
