@@ -4,21 +4,18 @@ This repository contains the implementation of **YOLO-DBN**, integrating Diverse
 
 ---
 
-## Quick Start with Google Colab
+## 🚀 Live Demo & Web App
 
-You can run the entire workflow directly in your browser using Google Colab. We provide notebooks for both training from scratch and evaluating our pre-trained model:
+You can test our trained model directly through our web application:
+👉 **[Mulberry Leaf Disease Detector Web App](https://mulberry.streamlit.app/)**
 
-| Task | Google Colab Link | GitHub Notebook Link |
-| :--- | :--- | :--- |
-| **Train from Scratch** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1rdFFJnAjjFdDngo3Gnh3qyyBSJ8BL7pk?usp=sharing) | [YOLOv10m_DBM_training.ipynb](https://github.com/N786h/YOLO-DBN/blob/main/YOLOv10m_DBM_training.ipynb) |
-| **Evaluate Pre-trained Model** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/N786h/YOLO-DBN/blob/main/YOLOv10m_DBM_generate_the_test_results.ipynb) | [YOLOv10m_DBM_generate_the_test_results.ipynb](https://github.com/N786h/YOLO-DBN/blob/main/YOLOv10m_DBM_generate_the_test_results.ipynb) |
+---
 
-> [!NOTE]
-> **API Key Safety in Google Colab:**
-> The Colab notebooks retrieve the API key securely using Colab Secrets (`userdata`).
-> 1. Click the **Key icon (Secrets)** in the Colab left sidebar.
-> 2. Add a new secret named `ROBOFLOW_API_KEY` with your actual Roboflow API key.
-> 3. Toggle "Notebook access" to **On**.
+## 💻 Quick Start with Google Colab
+
+You can run the entire training and evaluation workflow directly in your browser using Google Colab:
+
+👉 **[Open YOLO-DBN Training & Evaluation Notebook on Google Colab](https://colab.research.google.com/drive/1rdFFJnAjjFdDngo3Gnh3qyyBSJ8BL7pk?usp=sharing)**
 
 ---
 
@@ -53,7 +50,7 @@ pip install git+https://github.com/N786h/YOLO-DBN.git
 
 ### 3. Download the Dataset
 
-Download the preprocessed and augmented publicly available mulberry leaf disease dataset from Roboflow. To secure your API credentials, load the Roboflow API key from a `.env` file using the `python-dotenv` library.
+Download the preprocessed and augmented publicly available mulberry leaf disease dataset from Roboflow. The dataset download script loads the API key from the `.env` file included in the repository.
 
 #### a. Install Required Libraries
 ```bash
@@ -61,14 +58,14 @@ pip install roboflow python-dotenv
 ```
 
 #### b. Set Up Environment Variables (`.env`)
-Create a `.env` file in the root directory of your project (this file is excluded from Git tracking to keep your credentials safe):
+Make sure a `.env` file exists in the root directory of your project with your API key:
 
 ```env
-ROBOFLOW_API_KEY=your_actual_api_key_here
+ROBOFLOW_API_KEY=H2A65FaRZ08GLCs3xt5A
 ```
 
 #### c. Download the Mulberry Leaf Disease Dataset
-Run the following Python script, which securely loads the API key from the `.env` file:
+Run the following Python script to download the dataset in YOLO format:
 
 ```python
 import os
