@@ -13,9 +13,10 @@ You can test our trained model directly through our web application:
 
 ## 💻 Quick Start with Google Colab
 
-You can run the entire training and evaluation workflow directly in your browser using Google Colab:
+You can run the training and evaluation workflows directly in your browser using Google Colab:
 
-👉 **[Open YOLO-DBN Training & Evaluation Notebook on Google Colab](https://colab.research.google.com/drive/1rdFFJnAjjFdDngo3Gnh3qyyBSJ8BL7pk?usp=sharing)**
+👉 **[YOLOv10m-DBN Training Notebook](https://colab.research.google.com/drive/1rdFFJnAjjFdDngo3Gnh3qyyBSJ8BL7pk?usp=sharing)**  
+👉 **[YOLOv10m-DBN Generate Test Results Notebook](https://colab.research.google.com/drive/1Z456qiDNsnn58N0xdRBPZCblZelhWdFB?usp=sharing)**
 
 ---
 
