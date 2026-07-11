@@ -52,10 +52,10 @@ __all__ = (
     "ResNetLayer",
     "SCDown",
     "TorchVision",
-    "DiverseBlockNet",
-    "Bottleneck_DBN",
-    "C2f_DBN",
-    "C3k2_DBN",
+    "DiverseAttentionNet",
+    "Bottleneck_DAN",
+    "C2f_DAN",
+    "C3k2_DAN",
 )
 
 
@@ -1384,12 +1384,12 @@ class PSABlock(nn.Module):
 
 ################################# Our Start ##########################
 
-class DiverseBlockNet(nn.Module):
+class DiverseAttentionNet(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size,
                  stride=1, padding=None, dilation=1, groups=1,
                  internal_channels_1x1_3x3=None,
                  deploy=False, single_init=False):
-        super(DiverseBlockNet, self).__init__()
+        super(DiverseAttentionNet, self).__init__()
         self.deploy = deploy
 
         # Using optimized activation function
@@ -1490,31 +1490,30 @@ class DiverseBlockNet(nn.Module):
 
 
 
-class Bottleneck_DBN(Bottleneck):
+class Bottleneck_DAN(Bottleneck):
     def __init__(self, c1, c2, shortcut=True, g=1, k=(3, 3), e=0.5):
         super().__init__(c1, c2, shortcut, g, k, e)
         c_ = int(c2 * e)  # hidden channels
-        self.cv1 = DiverseBlockNet(c1, c_, k[0], 1)
-        self.cv2 = DiverseBlockNet(c_, c2, k[1], 1, groups=g)
+        self.cv1 = DiverseAttentionNet(c1, c_, k[0], 1)
+        self.cv2 = DiverseAttentionNet(c_, c2, k[1], 1, groups=g)
 
-class C2f_DBN(C2f):
+class C2f_DAN(C2f):
     def __init__(self, c1, c2, n=1, shortcut=False, g=1, e=0.5):
         super().__init__(c1, c2, n, shortcut, g, e)
-        self.m = nn.ModuleList(Bottleneck_DBN(self.c, self.c, shortcut, g, k=(3, 3), e=1.0) for _ in range(n))
+        self.m = nn.ModuleList(Bottleneck_DAN(self.c, self.c, shortcut, g, k=(3, 3), e=1.0) for _ in range(n))
 
 
-class C3k2_DBN(C2f_DBN):
+class C3k2_DAN(C2f_DAN):
     """Faster Implementation of CSP Bottleneck with 2 convolutions."""
 
     def __init__(self, c1, c2, n=1, c3k=False, e=0.5, g=1, shortcut=True):
         """Initializes the C3k2 module, a faster CSP Bottleneck with 2 convolutions and optional C3k blocks."""
         super().__init__(c1, c2, n, shortcut, g, e)
         self.m = nn.ModuleList(
-            C3k(self.c, self.c, 2, shortcut, g) if c3k else Bottleneck_DBN(self.c, self.c, shortcut, g, k=((3, 3), (3, 3)), e=1.0) for _ in range(n)
+            C3k(self.c, self.c, 2, shortcut, g) if c3k else Bottleneck_DAN(self.c, self.c, shortcut, g, k=((3, 3), (3, 3)), e=1.0) for _ in range(n)
         )
 
 ##################################### Our End ############################################
-
 
 
 class PSA(nn.Module):
