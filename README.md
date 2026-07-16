@@ -111,21 +111,13 @@ wget -q -O yolov10m.pt https://github.com/ultralytics/assets/releases/download/v
 Execute the following training script in Python to initialize the model with pre-trained weights and begin training:
 
 ```python
-import os
 from ultralytics import YOLO
-
-# Asset 'bus.jpg' which is required for the AMP check
-assets_path = '/usr/local/lib/python3.12/dist-packages/ultralytics/assets/'
-os.makedirs(assets_path, exist_ok=True)
-if not os.path.exists(os.path.join(assets_path, 'bus.jpg')):
-    # In Jupyter/Colab use !wget, or run via terminal without '!'
-    os.system(f"wget -q -O {assets_path}bus.jpg https://raw.githubusercontent.com/ultralytics/ultralytics/main/ultralytics/assets/bus.jpg")
 
 # Load the model configuration and transfer weights
 model = YOLO('yolov10-DBN.yaml').load('yolov10m.pt')
 
 # Start training
-result = model.train(data='Mulberry-2/data.yaml', epochs=100, batch=16)
+result = model.train(data='Mulberry-2/data.yaml', epochs=100, batch=16, amp=False)
 ```
 
 ---
