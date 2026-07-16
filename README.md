@@ -98,7 +98,15 @@ Download the customized YAML YOLOv10-DBN file:
 wget -q -O yolov10-DBN.yaml https://raw.githubusercontent.com/N786h/YOLO-DBN/main/ultralytics/cfg/models/v10/yolov10-DBN.yaml
 ```
 
-### 5. Execute Training
+### 5. Download Pre-trained Weights
+
+Download the pre-trained weights for transfer learning:
+
+```bash
+wget -q -O yolov10m.pt https://github.com/ultralytics/assets/releases/download/v8.4.0/yolov10m.pt
+```
+
+### 6. Execute Training
 
 Execute the following training script in Python to initialize the model with pre-trained weights and begin training:
 
@@ -126,7 +134,7 @@ result = model.train(data='Mulberry-2/data.yaml', epochs=100, batch=16)
 
 If you want to evaluate an already trained model using our pre-trained weights:
 
-### 6. Download Pre-trained Weights
+### 7. Download Pre-trained Weights
 
 Download the pre-trained weights (`best.pt`) directly from our repository:
 
@@ -134,7 +142,7 @@ Download the pre-trained weights (`best.pt`) directly from our repository:
 wget -q -O best.pt https://github.com/N786h/YOLO-DBN/raw/main/models/best.pt
 ```
 
-### 7. Run Test Set Evaluation
+### 8. Run Test Set Evaluation
 
 Evaluate the model on the test dataset split using the command-line interface:
 
