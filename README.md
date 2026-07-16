@@ -15,7 +15,7 @@ You can test our trained model directly through our web application:
 
 You can run the training and evaluation workflows directly in your browser using Google Colab:
 
-👉 **[YOLOv10m-DBN Training Notebook](https://colab.research.google.com/drive/1rdFFJnAjjFdDngo3Gnh3qyyBSJ8BL7pk?usp=sharing)**  
+👉 **[YOLOv10m-DBN Training Notebook](https://colab.research.google.com/drive/1rdFFJnAjjFdDngo3Gnh3qyyBSJ8BL7pk?usp=sharing)**
 👉 **[YOLOv10m-DBN Generate Test Results Notebook](https://colab.research.google.com/drive/1Z456qiDNsnn58N0xdRBPZCblZelhWdFB?usp=sharing)**
 
 ---
@@ -54,18 +54,17 @@ pip install git+https://github.com/N786h/YOLO-DBN.git
 Download the preprocessed and augmented publicly available mulberry leaf disease dataset from Roboflow. The dataset download script loads the API key from the `.env` file included in the repository.
 
 #### a. Install Required Libraries
+
 ```bash
 pip install roboflow python-dotenv
 ```
 
 #### b. Set Up Environment Variables (`.env`)
-Make sure a `.env` file exists in the root directory of your project with your API key:
 
-```env
-ROBOFLOW_API_KEY=H2A65FaRZ08GLCs3xt5A
-```
+Make sure a `.env` file exists in the root directory of your project with the API key:
 
 #### c. Download the Mulberry Leaf Disease Dataset
+
 Run the following Python script to download the dataset in YOLO format:
 
 ```python
