@@ -114,7 +114,7 @@ Execute the following training script in Python to initialize the model with pre
 from ultralytics import YOLO
 
 # Load the model configuration and transfer weights
-model = YOLO('yolov10-DBN.yaml').load('yolov10m.pt')
+model = YOLO('yolov10m-DBN.yaml').load('yolov10m.pt')
 
 # Start training
 result = model.train(data='Mulberry-2/data.yaml', epochs=100, batch=16, amp=False)
